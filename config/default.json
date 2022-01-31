@@ -1,0 +1,4 @@
+{
+    "mangoURI" : "mongodb+srv://saeed22:saeed22@smt.vvdtx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", 
+    "jwtSecret": "TheSecretToken123"
+}
