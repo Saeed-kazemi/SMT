@@ -17,7 +17,6 @@ const User = require('../../models/User');
 router.post(
   '/',
   // setting validation for data with express-validator
-
   check('name', 'Name is required').notEmpty(),
   check('email', 'Please include a valid email').isEmail(),
   check(
@@ -49,7 +48,7 @@ router.post(
       const avatar = gravatar.url(email, {
         s: '200',
         r: 'pg',
-        d: 'mm',
+        d: 'monsterid',
       });
 
       // create an instante of user
