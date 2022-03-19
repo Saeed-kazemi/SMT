@@ -3,13 +3,14 @@ import { Link, Navigate } from 'react-router-dom';
 //import axios from 'axios';
 
 const Register = () => {
+  // Component state for Register
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
     password2: '',
   });
-
+  // Deconstructering the form data
   const { name, email, password, password2 } = formData;
 
   const onChange = (e) =>
