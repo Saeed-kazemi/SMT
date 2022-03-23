@@ -8,6 +8,8 @@ import Alert from './components/layout/Alert';
 import Dashboard from './components/dashboard/Dashboard';
 import PrivateRoute from './components/routing/PrivateRoute';
 import ProfileForm from './components/profile-forms/ProfileForm';
+import AddProject from './components/profile-forms/AddProject';
+import AddCertification from './components/profile-forms/AddCertification';
 
 // Redux
 import { Provider } from 'react-redux';
@@ -48,6 +50,14 @@ const App = () => {
             <Route
               path='edit-profile'
               element={<PrivateRoute component={ProfileForm} />}
+            />
+            <Route
+              path='add-project'
+              element={<PrivateRoute component={AddProject} />}
+            />
+            <Route
+              path='add-Certification'
+              element={<PrivateRoute component={AddCertification} />}
             />
           </Routes>
         </Fragment>

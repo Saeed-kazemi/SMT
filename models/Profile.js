@@ -59,18 +59,18 @@ const ProfileSchema = new mongoose.Schema({
   ],
   certification: [
     {
-      name: {
+      award: {
         type: String,
         required: true,
       },
-      degree: {
+      awardedBy: {
         type: String,
         required: true,
       },
-      fieldofstudy: {
-        type: String,
-        required: true,
-      },
+      // fieldofstudy: {
+      //   type: String,
+      //   required: true,
+      // },
       from: {
         type: Date,
         required: true,
