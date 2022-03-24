@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import { getCurrentProfile } from '../../actions/profile';
 import DashboardActions from './DashboardActions';
+import Projects from './Projects';
+import Certification from './Certification';
 
 const Dashboard = ({
   getCurrentProfile,
@@ -28,6 +30,8 @@ const Dashboard = ({
           <Fragment>
             {' '}
             <DashboardActions />
+            {/* <Projects project={profile.project} /> */}
+            <Certification certification={profile.certification} />
           </Fragment>
         ) : (
           <>
