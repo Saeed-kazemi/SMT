@@ -10,6 +10,7 @@ import PrivateRoute from './components/routing/PrivateRoute';
 import ProfileForm from './components/profile-forms/ProfileForm';
 import AddProject from './components/profile-forms/AddProject';
 import AddCertification from './components/profile-forms/AddCertification';
+import Profiles from './components/profiles/Profiles';
 
 // Redux
 import { Provider } from 'react-redux';
@@ -38,6 +39,7 @@ const App = () => {
             <Route path='/' element={<Landing />} />
             <Route path='register' element={<Register />} />
             <Route path='login' element={<Login />} />
+            <Route path='profiles' element={<Profiles />} />
 
             <Route
               path='dashboard'

@@ -103,9 +103,7 @@ const ProfileForm = ({
 
             <option value='Other'>Other</option>
           </select>
-          <small className='form-text'>
-            Give us an idea of what field you are working on mostly
-          </small>
+          <small className='form-text'>What industry is your company in?</small>
         </div>
         <div className='form-group'>
           <input

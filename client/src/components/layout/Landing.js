@@ -11,7 +11,8 @@ const Landing = ({ isAuthenticated }) => {
     <section className='landing'>
       <div className='dark-overlay'>
         <div className='landing-inner'>
-          <h1 className='x-large'>Stakeholder Mapping</h1>
+          <h1 className='x-large'>Collaborate Market</h1>
+          <h2>A stakeholder mapping platform</h2>
           <p className='lead'>
             Create a buiness profile, share posts, get help and find other
             bsuinesses to colabrate with
