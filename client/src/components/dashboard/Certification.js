@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-// import { deleteProject } from '../../actions/profile';
+import { deleteCertification } from '../../actions/profile';
 import formatDate from '../../utils/formatDate';
 
-const Certification = ({ certification }) => {
+const Certification = ({ certification, deleteCertification }) => {
   const certifications = certification.map((certi) => (
     <tr key={certi._id}>
       <td>{certi.award}</td>
@@ -13,7 +13,12 @@ const Certification = ({ certification }) => {
         {formatDate(certi.from)} - {certi.to ? formatDate(certi.to) : 'Now'}
       </td>
       <td>
-        <button className='btn btn-danger'>Delete</button>
+        <button
+          onClick={() => deleteCertification(certi._id)}
+          className='btn btn-danger'
+        >
+          Delete
+        </button>
       </td>
     </tr>
   ));
@@ -26,7 +31,7 @@ const Certification = ({ certification }) => {
           <tr>
             <th>Award</th>
             <th className='hide-sm'>Awarded By</th>
-            <th className='hide-sm'>Years</th>
+            <th className='hide-sm'>Valid </th>
             <th />
           </tr>
         </thead>
@@ -38,7 +43,7 @@ const Certification = ({ certification }) => {
 
 Certification.propTypes = {
   certification: PropTypes.array.isRequired,
-  //deleteExperience: PropTypes.func.isRequired
+  deleteCertification: PropTypes.func.isRequired,
 };
 
-export default Certification;
+export default connect(null, { deleteCertification })(Certification);

@@ -1,7 +1,13 @@
 import axios from 'axios';
 import { setAlert } from './alert';
 
-import { GET_PROFILE, PROFILE_ERROR, UPDATE_PROFILE } from './types';
+import {
+  GET_PROFILE,
+  PROFILE_ERROR,
+  UPDATE_PROFILE,
+  CLEAR_PROFILE,
+  ACCOUNT_DELETED,
+} from './types';
 
 // Get current users profile
 export const getCurrentProfile = () => async (dispatch) => {
@@ -103,5 +109,62 @@ export const addCertification = (formData, navigate) => async (dispatch) => {
       type: PROFILE_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status },
     });
+  }
+};
+
+// Delete Project
+export const deleteProject = (id) => async (dispatch) => {
+  try {
+    const res = await axios.delete(`/api/profile/projects/${id}`);
+
+    dispatch({
+      type: UPDATE_PROFILE,
+      payload: res.data,
+    });
+
+    dispatch(setAlert('Project Removed', 'success'));
+  } catch (err) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+// Delete Certification
+export const deleteCertification = (id) => async (dispatch) => {
+  try {
+    const res = await axios.delete(`/api/profile/certification/${id}`);
+
+    dispatch({
+      type: UPDATE_PROFILE,
+      payload: res.data,
+    });
+
+    dispatch(setAlert('Certification Removed', 'success'));
+  } catch (err) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+// Delete account & profile
+export const deleteAccount = () => async (dispatch) => {
+  if (window.confirm('Are you sure? This can NOT be undone!')) {
+    try {
+      await axios.delete('/api/profile');
+
+      dispatch({ type: CLEAR_PROFILE });
+      dispatch({ type: ACCOUNT_DELETED });
+
+      dispatch(setAlert('Your account has been permanently deleted'));
+    } catch (err) {
+      dispatch({
+        type: PROFILE_ERROR,
+        payload: { msg: err.response.statusText, status: err.response.status },
+      });
+    }
   }
 };

@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-// import { deleteProject } from '../../actions/profile';
+import { deleteProject } from '../../actions/profile';
 import formatDate from '../../utils/formatDate';
 
-const Projects = ({ proj }) => {
-  const projects = proj.map((exp) => (
+const Projects = ({ project, deleteProject }) => {
+  const projects = project.map((exp) => (
     <tr key={exp._id}>
       <td>{exp.company}</td>
       <td className='hide-sm'>{exp.title}</td>
@@ -13,7 +13,12 @@ const Projects = ({ proj }) => {
         {formatDate(exp.from)} - {exp.to ? formatDate(exp.to) : 'Now'}
       </td>
       <td>
-        <button className='btn btn-danger'>Delete</button>
+        <button
+          onClick={() => deleteProject(exp._id)}
+          className='btn btn-danger'
+        >
+          Delete
+        </button>
       </td>
     </tr>
   ));
@@ -25,8 +30,8 @@ const Projects = ({ proj }) => {
         <thead>
           <tr>
             <th>Company</th>
-            <th>Industry</th>
-            <th>Years</th>
+            <th className='hide-sm'>Industry</th>
+            <th className='hide-sm'>Years</th>
             <th />
           </tr>
         </thead>
@@ -37,8 +42,8 @@ const Projects = ({ proj }) => {
 };
 
 Projects.propTypes = {
-  projects: PropTypes.array.isRequired,
-  //deleteExperience: PropTypes.func.isRequired
+  project: PropTypes.array.isRequired,
+  deleteProject: PropTypes.func.isRequired,
 };
 
-export default Projects;
+export default connect(null, { deleteProject })(Projects);
