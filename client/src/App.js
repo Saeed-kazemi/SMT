@@ -12,6 +12,7 @@ import AddProject from './components/profile-forms/AddProject';
 import AddCertification from './components/profile-forms/AddCertification';
 import Profiles from './components/profiles/Profiles';
 import Profile from './components/profile/Profile';
+import Posts from './components/posts/Posts';
 
 // Redux
 import { Provider } from 'react-redux';
@@ -63,6 +64,7 @@ const App = () => {
               path='add-Certification'
               element={<PrivateRoute component={AddCertification} />}
             />
+            <Route path='posts' element={<PrivateRoute component={Posts} />} />
           </Routes>
         </Fragment>
       </Router>
