@@ -54,15 +54,7 @@ const AddCertification = ({ addCertification }) => {
             required
           />
         </div>
-        {/* <div className='form-group'>
-          <input
-            type='text'
-            placeholder='Field or Industry'
-            name='fieldofstudy'
-            value={fieldofstudy}
-            onChange={onChange}
-          />
-        </div> */}
+
         <div className='form-group'>
           <h4>Valid From Date</h4>
           <input type='date' name='from' value={from} onChange={onChange} />

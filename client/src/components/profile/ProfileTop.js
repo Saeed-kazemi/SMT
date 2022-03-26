@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 const ProfileTop = ({
   profile: {
     status,
-    company,
     location,
     website,
     social,

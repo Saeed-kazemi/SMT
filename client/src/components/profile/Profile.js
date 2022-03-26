@@ -6,6 +6,8 @@ import { Link, useParams } from 'react-router-dom';
 import { getProfileById } from '../../actions/profile';
 import ProfileTop from './ProfileTop';
 import ProfileAbout from './ProfileAbout';
+import ProfileProject from './ProfileProject';
+import ProfileCertification from './ProfileCertification';
 
 const Profile = ({ getProfileById, profile: { profile }, auth }) => {
   const { id } = useParams();
@@ -34,12 +36,41 @@ const Profile = ({ getProfileById, profile: { profile }, auth }) => {
           <div className='profile-grid my-1'>
             <ProfileTop profile={profile} />
             <ProfileAbout profile={profile} />
+            <div className='profile-exp bg-white p-2'>
+              <h2 className='text-primary'>Projects</h2>
+              {profile.projects.length > 0 ? (
+                <Fragment>
+                  {profile.projects.map((project) => (
+                    <ProfileProject key={project._id} project={project} />
+                  ))}
+                </Fragment>
+              ) : (
+                <h4>No Projects</h4>
+              )}
+            </div>
+
+            <div className='profile-edu bg-white p-2'>
+              <h2 className='text-primary'>Certification</h2>
+              {profile.certification.length > 0 ? (
+                <Fragment>
+                  {profile.certification.map((certification) => (
+                    <ProfileCertification
+                      key={certification._id}
+                      certification={certification}
+                    />
+                  ))}
+                </Fragment>
+              ) : (
+                <h4>No Certification</h4>
+              )}
+            </div>
           </div>
         </Fragment>
       )}
     </section>
   );
 };
+
 Profile.propTypes = {
   getProfileById: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
