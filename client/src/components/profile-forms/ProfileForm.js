@@ -95,7 +95,7 @@ const ProfileForm = ({
       <form className='form' onSubmit={onSubmit}>
         <div className='form-group'>
           <select name='status' value={status} onChange={onChange}>
-            <option>* Select Professional Status</option>
+            <option>* Select Your Industry</option>
             <option value='Space'>Space</option>
             <option value='Defence'>Defence</option>
             <option value='Aerospace'>Aerospace</option>

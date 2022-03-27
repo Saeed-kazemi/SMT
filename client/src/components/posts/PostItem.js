@@ -23,6 +23,7 @@ const PostItem = ({
     <div>
       <p className='my-1'>{text}</p>
       <p className='post-date'>Posted on {formatDate(date)}</p>
+
       {showActions && (
         <Fragment>
           <button
