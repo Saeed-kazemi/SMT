@@ -25,11 +25,11 @@ const Projects = ({ project, deleteProject }) => {
 
   return (
     <Fragment>
-      <h2 className='my-2'>Project Credentials</h2>
+      <h2 className='my-2'>Past or current projects</h2>
       <table className='table'>
         <thead>
           <tr>
-            <th>Company</th>
+            <th>Partnership with</th>
             <th className='hide-sm'>Industry</th>
             <th className='hide-sm'>Years</th>
             <th />

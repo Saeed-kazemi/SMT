@@ -89,7 +89,7 @@ const ProfileForm = ({
         <i className='fas fa-user' />
         {creatingProfile
           ? ` Let's get some information to make your`
-          : ' Add some changes to your profile'}
+          : ' Make some changes to your profile'}
       </p>
       <small>* = required field</small>
       <form className='form' onSubmit={onSubmit}>

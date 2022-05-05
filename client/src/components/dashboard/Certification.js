@@ -31,7 +31,7 @@ const Certification = ({ certification, deleteCertification }) => {
           <tr>
             <th>Award</th>
             <th className='hide-sm'>Awarded By</th>
-            <th className='hide-sm'>Valid </th>
+            <th className='hide-sm'>Valid from - to</th>
             <th />
           </tr>
         </thead>
